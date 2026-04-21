@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Chat - SecureWealth Twin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Sora:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1d1c16",
+                        "outline-variant": "#49473f",
+                        "on-tertiary-container": "#995200",
+                        "surface": "#0f131c",
+                        "tertiary-fixed-dim": "#ffb77c",
+                        "surface-dim": "#0f131c",
+                        "on-secondary-container": "#00604f",
+                        "inverse-on-surface": "#2c3039",
+                        "inverse-primary": "#615e57",
+                        "surface-container-highest": "#31353e",
+                        "surface-container-lowest": "#0a0e16",
+                        "background": "#080c14",
+                        "surface-tint": "#cac6be",
+                        "secondary-fixed": "#42fdd7",
+                        "outline": "#949088",
+                        "on-tertiary-fixed-variant": "#6d3900",
+                        "primary-fixed": "#e7e2d9",
+                        "tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005142",
+                        "surface-container-low": "#181c24",
+                        "on-secondary": "#00382d",
+                        "on-primary-fixed-variant": "#494740",
+                        "on-tertiary": "#4d2600",
+                        "surface-variant": "#31353e",
+                        "secondary": "#00e5c0",
+                        "on-primary-container": "#67645d",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cac6bc",
+                        "primary-fixed-dim": "#cac6be",
+                        "on-background": "#dfe2ee",
+                        "on-primary": "#32302a",
+                        "tertiary-container": "#ffdcc2",
+                        "on-surface": "#dfe2ee",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#00e0bb",
+                        "surface-bright": "#353942",
+                        "primary": "#ffffff",
+                        "surface-container": "#1c2028",
+                        "secondary-container": "#00e3be",
+                        "inverse-surface": "#dfe2ee",
+                        "surface-container-high": "#262a33",
+                        "tertiary-fixed": "#ffdcc2",
+                        "primary-container": "#e7e2d9",
+                        "on-secondary-fixed": "#002019",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "48px",
+                        "element-gap": "24px",
+                        "margin-mobile": "20px",
+                        "container-padding": "32px",
+                        "margin-desktop": "64px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Instrument Serif"],
+                        "body-md": ["Sora"],
+                        "headline-md": ["Instrument Serif"],
+                        "caption": ["Sora"],
+                        "stat-xl": ["Instrument Serif"],
+                        "ui-label": ["Sora"],
+                        "body-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "caption": ["11px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "stat-xl": ["48px", { "lineHeight": "1.0", "fontWeight": "400" }],
+                        "ui-label": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "300" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#080C14] text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-secondary/30">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 bg-black/60 backdrop-blur-md border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
+<button class="text-white/60 hover:text-[#00E5C0] transition-colors duration-300 active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<div class="flex items-center gap-2">
+<h1 class="font-['Epilogue'] tracking-widest uppercase font-bold text-sm text-[#00E5C0] flex items-center gap-2">
+                ASK YOUR TWIN
+                <span class="w-2 h-2 rounded-full bg-secondary block"></span>
+</h1>
+</div>
+<button class="text-white/60 hover:text-[#00E5C0] transition-colors duration-300 active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-40 px-6 max-w-3xl mx-auto w-full flex flex-col gap-6">
+<!-- Suggested Chips Section -->
+<section class="flex flex-col gap-4"><!-- User Message -->
+<div class="flex justify-end w-full mb-2">
+<div class="bg-white/5 border border-white/10 px-4 py-3 rounded-2xl rounded-tr-sm max-w-[80%] shadow-sm">
+<p class="font-body-md text-sm text-on-surface/90">
+            How should I allocate my extra savings this month?
+        </p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3"><button class="border border-white/10 bg-white/5 px-3 py-1.5 rounded-full font-ui-label text-[10px] text-white/70 hover:border-secondary hover:text-secondary transition-all uppercase tracking-wider">Why is my score high?</button><button class="border border-white/10 bg-white/5 px-3 py-1.5 rounded-full font-ui-label text-[10px] text-white/70 hover:border-secondary hover:text-secondary transition-all uppercase tracking-wider">What should I do with ₹10,000?</button></div>
+</section>
+<!-- Chat Stream -->
+<section class="flex flex-col">
+<!-- AI Message Block -->
+<div class="flex gap-4 items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#1A2235] border border-white/10 flex items-center justify-center shrink-0 shadow-lg"><span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span></div>
+<div class="flex flex-col gap-4 w-full">
+<!-- Text Bubble / Block -->
+<div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl rounded-tl-sm shadow-xl">
+<p class="font-body-md text-body-md text-on-surface">
+                            At your income level and current savings rate, ₹50K splits well: ₹30K to top up your Emergency Fund and ₹20K to a liquid fund.
+                        </p>
+</div>
+<!-- Referenced WealthAction Card -->
+<div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 p-5 rounded-xl flex items-center justify-between group hover:border-[#00E5C0]/50 hover:shadow-[0_0_20px_rgba(0,229,192,0.1)] transition-all cursor-pointer w-full max-w-md shadow-lg">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-[#00E5C0]/10 flex items-center justify-center border border-[#00E5C0]/20">
+<span class="material-symbols-outlined text-[#00E5C0]" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-label text-ui-label text-white uppercase tracking-wider">Top up Emergency Fund</span>
+<span class="font-caption text-caption text-white/60 mt-1">Suggested Allocation: ₹30,000</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-ui-label text-ui-label text-[#00E5C0] uppercase tracking-wider drop-shadow-[0_0_8px_rgba(0,229,192,0.5)]">Impact: High</span>
+<span class="material-symbols-outlined text-white/40 group-hover:text-[#00E5C0] transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Input Bar -->
+<!-- Fixed Input Bar integrated with BottomNav -->
+<div class="fixed bottom-[72px] left-0 w-full bg-black/40 backdrop-blur-2xl border-t border-white/5 px-6 py-4 z-40">
+<div class="max-w-3xl mx-auto flex items-center gap-4 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 focus-within:border-secondary/50 focus-within:bg-white/10 transition-all">
+<input class="w-full bg-transparent border-none outline-none font-body-md text-sm text-white placeholder:text-white/30 p-0 focus:ring-0" placeholder="Ask anything about your finances..." type="text"/>
+<button class="text-secondary/60 hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Shell) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-black/40 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_40px_rgba(0,229,192,0.05)] rounded-t-lg md:hidden">
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all duration-300 active:scale-110 w-full h-full gap-1">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Epilogue'] text-[10px] font-semibold uppercase tracking-widest">Pulse</span>
+</button>
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all duration-300 active:scale-110 w-full h-full gap-1">
+<span class="material-symbols-outlined" data-icon="track_changes">track_changes</span>
+<span class="font-['Epilogue'] text-[10px] font-semibold uppercase tracking-widest">Goals</span>
+</button>
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all duration-300 active:scale-110 w-full h-full gap-1">
+<span class="material-symbols-outlined" data-icon="pie_chart">pie_chart</span>
+<span class="font-['Epilogue'] text-[10px] font-semibold uppercase tracking-widest">Portfolio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#00E5C0] drop-shadow-[0_0_8px_rgba(0,229,192,0.5)] active:scale-110 transition-transform duration-200 w-full h-full gap-1">
+<span class="material-symbols-outlined" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-['Epilogue'] text-[10px] font-semibold uppercase tracking-widest">Chat</span>
+</button>
+</nav>
+</body></html>

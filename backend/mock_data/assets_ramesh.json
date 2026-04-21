@@ -1,0 +1,22 @@
+{
+  "assets": [
+    {
+      "asset_type": "property",
+      "name": "Commercial Shop Pune",
+      "purchase_value": 5000000,
+      "current_value": 6500000
+    },
+    {
+      "asset_type": "gold",
+      "name": "Gold Bars (50g)",
+      "purchase_value": 250000,
+      "current_value": 310000
+    },
+    {
+      "asset_type": "vehicle",
+      "name": "Toyota Innova",
+      "purchase_value": 2500000,
+      "current_value": 1800000
+    }
+  ]
+}

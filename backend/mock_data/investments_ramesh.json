@@ -1,0 +1,32 @@
+{
+  "investments": [
+    {
+      "account_type": "fd",
+      "scheme_name": "SBI FD 1",
+      "invested_amount": 500000,
+      "current_value": 535000,
+      "interest_rate": 7.0
+    },
+    {
+      "account_type": "fd",
+      "scheme_name": "HDFC FD 2",
+      "invested_amount": 200000,
+      "current_value": 210000,
+      "interest_rate": 7.2
+    },
+    {
+      "account_type": "ppf",
+      "scheme_name": "PPF",
+      "invested_amount": 1200000,
+      "current_value": 1800000,
+      "interest_rate": 7.1
+    },
+    {
+      "account_type": "rd",
+      "scheme_name": "Monthly RD",
+      "invested_amount": 90000,
+      "current_value": 94000,
+      "sip_amount": 5000
+    }
+  ]
+}

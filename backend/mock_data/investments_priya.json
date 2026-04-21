@@ -1,0 +1,30 @@
+{
+  "investments": [
+    {
+      "account_type": "mutual_fund",
+      "scheme_name": "Axis Bluechip Fund",
+      "invested_amount": 40000,
+      "current_value": 45200,
+      "sip_amount": 5000,
+      "returns_xirr": 14.2,
+      "start_date": "2025-08-24T07:27:12.285177"
+    },
+    {
+      "account_type": "mutual_fund",
+      "scheme_name": "Mirae Asset Large Cap",
+      "invested_amount": 40000,
+      "current_value": 44800,
+      "sip_amount": 5000,
+      "returns_xirr": 12.8,
+      "start_date": "2025-08-24T07:27:12.285184"
+    },
+    {
+      "account_type": "fd",
+      "scheme_name": "HDFC Fixed Deposit",
+      "invested_amount": 50000,
+      "current_value": 53550,
+      "interest_rate": 7.1,
+      "maturity_date": "2026-10-18T07:27:12.285187"
+    }
+  ]
+}

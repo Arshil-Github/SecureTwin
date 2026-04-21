@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {
+      "asset_type": "gold",
+      "name": "Gold Jewelry (10g)",
+      "purchase_value": 50000,
+      "current_value": 62000
+    },
+    {
+      "asset_type": "vehicle",
+      "name": "Honda Activa",
+      "purchase_value": 75000,
+      "current_value": 45000
+    }
+  ]
+}

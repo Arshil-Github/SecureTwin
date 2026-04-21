@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SecureWealth Twin - Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-container-low": "#151d1b",
+                            "tertiary": "#ffe4bc",
+                            "primary-fixed": "#42fdd7",
+                            "tertiary-container": "#ffc14e",
+                            "on-surface": "#dce5e0",
+                            "on-primary": "#00382d",
+                            "on-primary-fixed-variant": "#005142",
+                            "surface": "#0d1512",
+                            "surface-tint": "#00e0bb",
+                            "secondary-fixed-dim": "#ffb77c",
+                            "surface-container-high": "#232c29",
+                            "inverse-primary": "#006b59",
+                            "outline-variant": "#3b4a45",
+                            "on-secondary-fixed": "#2e1500",
+                            "secondary-fixed": "#ffdcc2",
+                            "inverse-surface": "#dce5e0",
+                            "tertiary-fixed-dim": "#f9bc49",
+                            "error": "#ffb4ab",
+                            "on-tertiary-container": "#724f00",
+                            "on-secondary-fixed-variant": "#6d3900",
+                            "surface-bright": "#333b38",
+                            "on-error": "#690005",
+                            "surface-dim": "#0d1512",
+                            "on-secondary": "#4d2600",
+                            "error-container": "#93000a",
+                            "surface-container-highest": "#2e3734",
+                            "primary-fixed-dim": "#00e0bb",
+                            "on-surface-variant": "#b9cac3",
+                            "secondary-container": "#d57a1b",
+                            "on-error-container": "#ffdad6",
+                            "primary": "#70ffdd",
+                            "outline": "#84948e",
+                            "on-tertiary": "#422c00",
+                            "background": "#0d1512",
+                            "surface-variant": "#2e3734",
+                            "surface-container": "#19211f",
+                            "on-primary-fixed": "#002019",
+                            "primary-container": "#00e5c0",
+                            "on-primary-container": "#006150",
+                            "secondary": "#ffb77c",
+                            "tertiary-fixed": "#ffdeaa",
+                            "surface-container-lowest": "#08100d",
+                            "inverse-on-surface": "#2a322f",
+                            "on-tertiary-fixed-variant": "#5f4100",
+                            "on-secondary-container": "#432100",
+                            "on-tertiary-fixed": "#271900",
+                            "on-background": "#dce5e0"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "xl": "40px",
+                            "card-gap": "20px",
+                            "sm": "8px",
+                            "lg": "24px",
+                            "xs": "4px",
+                            "md": "16px",
+                            "unit": "4px",
+                            "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                            "body-md": ["Manrope"],
+                            "headline-lg": ["Epilogue"],
+                            "label-sm": ["Manrope"],
+                            "display-xl": ["Epilogue"]
+                    },
+                    "fontSize": {
+                            "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                            "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #080C14;
+            color: #dce5e0;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid;
+            border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-image-slice: 1;
+        }
+        .glass-panel-rounded {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .hero-glow {
+            box-shadow: 0 0 120px 0 rgba(0, 229, 192, 0.15);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+<style>body { min-height: max(884px, 100dvh); }
+.glass-panel-standard { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.premium-glow { box-shadow: 0 0 80px -10px rgba(0, 229, 192, 0.12); }
+.nav-active { color: #00E5C0; text-shadow: 0 0 15px rgba(0, 229, 192, 0.4); }</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 bg-black/60 backdrop-blur-md docked full-width top-0 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
+<button class="text-[#00E5C0] hover:text-[#00E5C0] transition-colors duration-300 active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<h1 class="font-['Epilogue'] tracking-widest uppercase font-bold text-sm text-xl font-black tracking-tighter text-white bg-clip-text">SECUREWEALTH</h1>
+<button class="text-[#00E5C0] hover:text-[#00E5C0] transition-colors duration-300 active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[88px] pb-8 px-6 flex flex-col gap-[24px] max-w-2xl mx-auto w-full">
+<!-- Contextual Greeting -->
+<section class="flex flex-col gap-1">
+<p class="font-['Epilogue'] text-sm uppercase tracking-[0.2em] text-white/50">Good Morning</p>
+<h2 class="font-['Epilogue'] text-3xl font-bold text-white leading-tight">Your SIP debits tomorrow. Balance is comfortable.</h2>
+</section>
+<!-- Net Worth Hero -->
+<section class="relative rounded-2xl overflow-hidden glass-panel-standard p-6 premium-glow flex flex-col gap-6 border-white/10">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent z-0"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-['Epilogue'] text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">Total Net Worth</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-['Epilogue'] text-4xl font-bold text-white">₹4,82,340</span>
+<span class="font-['Manrope'] text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">+2.4%</span>
+</div>
+</div>
+<div class="relative z-10 h-32 w-full flex items-end">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+<defs>
+<lineargradient id="lineGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#00e5c0" stop-opacity="0.4"></stop>
+<stop offset="50%" stop-color="#00e5c0" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#00e5c0" stop-opacity="0.6"></stop>
+</lineargradient>
+<lineargradient id="fillGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00e5c0" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#00e5c0" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,40 L0,30 C20,35 30,15 50,20 C70,25 80,5 100,10 L100,40 Z" fill="url(#fillGrad)"></path>
+<path d="M0,30 C20,35 30,15 50,20 C70,25 80,5 100,10" fill="none" stroke="url(#lineGrad)" stroke-linecap="round" stroke-width="2.5" style="filter: drop-shadow(0px 4px 10px rgba(0,229,192,0.4));"></path>
+</svg>
+</div>
+</section>
+<!-- Status Cards Bento -->
+<section class="grid grid-cols-2 gap-4">
+<div class="glass-panel-standard rounded-xl p-5 flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">health_and_safety</span>
+<span class="font-['Epilogue'] text-[10px] font-bold text-white/60 uppercase tracking-wider">Portfolio Health</span>
+</div>
+<div class="flex items-end gap-1 mt-auto">
+<span class="font-['Epilogue'] text-3xl font-bold text-white">72</span>
+<span class="font-['Manrope'] text-xs font-semibold text-white/40 mb-1.5">/100</span>
+</div>
+<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%] rounded-full shadow-[0_0_10px_rgba(0,229,192,0.3)]"></div>
+</div>
+</div>
+<div class="glass-panel-standard rounded-xl p-5 flex flex-col gap-4 relative overflow-hidden">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[#FFC14E] text-xl">savings</span>
+<span class="font-['Epilogue'] text-[10px] font-bold text-white/60 uppercase tracking-wider">Savings Rate</span>
+</div>
+<div class="flex items-end gap-1 mt-auto">
+<span class="font-['Epilogue'] text-3xl font-bold text-white">18</span>
+<span class="font-['Manrope'] text-xs font-semibold text-white/40 mb-1.5">%</span>
+</div>
+<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#FFC14E] w-[18%] rounded-full shadow-[0_0_10px_rgba(255,193,78,0.3)]"></div>
+</div>
+</div>
+</section>
+<!-- Today's Focus -->
+<section class="flex flex-col gap-md"><h3 class="font-['Epilogue'] text-[10px] font-bold text-white/60 uppercase tracking-[0.2em] mb-1">Today's Focus</h3>
+<div class="flex flex-col gap-3">
+<div class="glass-panel-standard rounded-xl p-4 flex items-center justify-between border-l-2 border-l-primary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">currency_rupee</span>
+</div>
+<div class="flex flex-col">
+<span class="font-['Manrope'] text-sm font-bold text-white">HDFC Midcap SIP</span>
+<span class="font-['Manrope'] text-[11px] text-white/50">Tomorrow • Auto-debit</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-['Manrope'] text-sm font-bold text-white">₹15,000</span>
+<span class="font-['Epilogue'] text-[9px] font-bold text-primary uppercase tracking-wider">Funded</span>
+</div>
+</div>
+<div class="glass-panel-standard rounded-xl p-4 flex items-center justify-between border-l-2 border-l-secondary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1">restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="font-['Manrope'] text-sm font-bold text-white">Dining Spend High</span>
+<span class="font-['Manrope'] text-[11px] text-white/50">Budget exceeded by 12%</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-['Manrope'] text-sm font-bold text-white">₹8,450</span>
+<span class="font-['Epilogue'] text-[9px] font-bold text-secondary uppercase tracking-wider">Review</span>
+</div>
+</div>
+</div></section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 pb-safe glass-panel-standard border-t border-white/10 rounded-t-2xl md:hidden">
+<a class="flex flex-col items-center gap-1 nav-active" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">insights</span>
+<span class="font-['Epilogue'] text-[9px] font-bold uppercase tracking-widest">Pulse</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">track_changes</span>
+<span class="font-['Epilogue'] text-[9px] font-bold uppercase tracking-widest">Goals</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">pie_chart</span>
+<span class="font-['Epilogue'] text-[9px] font-bold uppercase tracking-widest">Portfolio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/40 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+<span class="font-['Epilogue'] text-[9px] font-bold uppercase tracking-widest">Chat</span>
+</a>
+</nav>
+<!-- Desktop Nav Fallback (hidden on mobile) -->
+<nav class="hidden md:flex fixed top-0 right-0 h-full w-64 bg-surface-container-low border-l border-white/5 pt-24 px-6 flex-col gap-8 z-40">
+<!-- Replicating the logic for desktop if needed, simplified for this layout -->
+</nav>
+</body></html>

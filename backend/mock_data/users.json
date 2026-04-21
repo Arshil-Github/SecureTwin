@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "priya@example.com",
+      "hashed_password": "$2b$12$OwiiiG03ugIzOCQq/FkMNOsiYKHZm.F37r.JhNr1T1aA1sGB2JZKm",
+      "full_name": "Priya Sharma",
+      "age": 28,
+      "monthly_income": 85000,
+      "risk_appetite": "moderate",
+      "is_kyc_verified": true,
+      "trusted_devices": [
+        "device_fingerprint_1"
+      ]
+    },
+    {
+      "id": 2,
+      "email": "ramesh@example.com",
+      "hashed_password": "$2b$12$R1Esmo1EQ35I5aEISVPF5Ocu./GRcIkeNARKWgE.rcq0dWB/7hL2y",
+      "full_name": "Ramesh Kulkarni",
+      "age": 45,
+      "monthly_income": 220000,
+      "risk_appetite": "conservative",
+      "is_kyc_verified": true,
+      "trusted_devices": [
+        "device_fingerprint_2"
+      ]
+    },
+    {
+      "id": 3,
+      "email": "ananya@example.com",
+      "hashed_password": "$2b$12$E8f237B/mmtfpUKmQ5dDT.NcSaxAEpYN5x04NKBOwubQTyWqrhf.S",
+      "full_name": "Ananya Iyer",
+      "age": 23,
+      "monthly_income": 42000,
+      "risk_appetite": "aggressive",
+      "is_kyc_verified": true,
+      "trusted_devices": [
+        "device_fingerprint_3"
+      ]
+    }
+  ]
+}

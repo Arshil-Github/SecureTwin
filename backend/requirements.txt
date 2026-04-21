@@ -1,0 +1,25 @@
+# backend/requirements.txt
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+anthropic
+google-generativeai
+scikit-learn
+pandas
+numpy
+statsmodels
+prophet
+shap
+redis
+celery
+python-dotenv
+httpx
+faker
+aiosqlite
+asyncpg
